@@ -7,10 +7,29 @@ class App extends Component {
   state = {
     isFiltered: false,
     pendingGuest: "",
-    guests: []
+    guests: [
+      {
+        name: Hamoud,
+        isConfirmed: false,
+        isEditing: false,
+        id: 1
+      },
+      {
+        name: Geert,
+        isConfirmed: false,
+        isEditing: false,
+        id: 2
+      },
+      {
+        name: Tim,
+        isConfirmed: false,
+        isEditing: false,
+        id: 3
+      }
+    ]
   };
 
-  lastGuestId = 0;
+  lastGuestId = 3;
 
   newGuestId = () => {
     const id = this.lastGuestId
@@ -92,7 +111,7 @@ class App extends Component {
     const numberUnconfirmed = totalInvited - numberAttending;
 
     return (
-      <div className="App">
+      <div className="App" > 
         <Header
           newGuestSubmitHandler={this.newGuestSubmitHandler}
           handelNameInput={this.handelNameInput}
