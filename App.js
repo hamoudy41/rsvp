@@ -33,7 +33,7 @@ class App extends Component {
 
   newGuestId = () => {
     const id = this.lastGuestId
-    this.lastGuestId += 1;
+    id += 1;
     return id;
   }
 
