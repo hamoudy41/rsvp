@@ -29,11 +29,12 @@ class App extends Component {
     ]
   };
 
-  lastGuestId = 3;
+lastGuestId = 3;
 
   newGuestId = () => {
-    let id = this.lastGuestId
+    let id = this.lastGuestId;
     id += 1;
+    this.lastGuestId = id;
     return id;
   }
 
