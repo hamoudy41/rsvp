@@ -32,7 +32,7 @@ class App extends Component {
   lastGuestId = 3;
 
   newGuestId = () => {
-    const id = this.lastGuestId
+    let id = this.lastGuestId
     id += 1;
     return id;
   }
