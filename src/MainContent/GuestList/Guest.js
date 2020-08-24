@@ -2,26 +2,30 @@ import React from "react";
 import PropTypes from "prop-types";
 import GuestName from "../GuestName";
 
-const Guest = props => (
+const Guest = ({name, isEditing, isConfirmed, 
+  handleConfirmation, 
+  handleToggleEditing, 
+  setName, 
+  handleRemove}) => (
   <li>
     <GuestName
-      isEditing={props.isEditing}
-      handleNameEdits={e => props.setName(e.target.value)}
+      isEditing={isEditing}
+      handleNameEdits={e => setName(e.target.value)}
     >
-      {props.name}
+      {name}
     </GuestName>
     <label>
       <input
         type="checkbox"
-        checked={props.isConfirmed}
-        onChange={props.handleConfirmation}
+        checked={isConfirmed}
+        onChange={handleConfirmation}
       />{" "}
       Confirmed
     </label>
-    <button onClick={props.handleToggleEditing}>
-      {props.isEditing ? "Save" : "Edit"}
+    <button onClick={handleToggleEditing}>
+      {isEditing ? "Save" : "Edit"}
     </button>
-    <button onClick={props.handleRemove}>Remove</button>
+    <button onClick={handleRemove}>Remove</button>
   </li>
 );
 
@@ -33,6 +37,12 @@ Guest.propTypes = {
   handleToggleEditing: PropTypes.func.isRequired,
   setName: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired
+};
+
+Guest.defaultProps = {
+    name: "Hamoud",
+    isConfirmed: false,
+    isEditing: false
 };
 
 export default Guest;
