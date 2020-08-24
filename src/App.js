@@ -12,31 +12,28 @@ class App extends Component {
         name: "Hamoud",
         isConfirmed: false,
         isEditing: false,
-        id: 1
+        id: 1,
       },
       {
         name: "Geert",
         isConfirmed: false,
         isEditing: false,
-        id: 2
+        id: 2,
       },
       {
         name: "Tim",
         isConfirmed: false,
         isEditing: false,
-        id: 3
-      }
-    ]
+        id: 3,
+      },
+    ],
   };
 
-lastGuestId = 3;
-
   newGuestId = () => {
-    let id = this.lastGuestId;
-    id += 1;
-    this.lastGuestId = id;
+    let lastId = this.state.guests.length;
+    const id = lastId + 1;
     return id;
-  }
+  };
 
   toggleGuestPropertyAt = (property, id) =>
     this.setState({
@@ -44,11 +41,11 @@ lastGuestId = 3;
         if (guest.id === id) {
           return {
             ...guest,
-            [property]: !guest[property]
+            [property]: !guest[property],
           };
         }
         return guest;
-      })
+      }),
     });
 
   setNameAt = (name, id) =>
@@ -57,44 +54,41 @@ lastGuestId = 3;
         if (guest.id === id) {
           return {
             ...guest,
-            name
+            name,
           };
         }
         return guest;
-      })
+      }),
     });
 
-  toggleConfirmationAt = id =>
-    this.toggleGuestPropertyAt("isConfirmed", id);
+  toggleConfirmationAt = (id) => this.toggleGuestPropertyAt("isConfirmed", id);
 
-  removeGuestAt = id => {
+  removeGuestAt = (id) => {
     this.setState({
-      guests: this.state.guests.filter(guest => id !== guest.id)
+      guests: this.state.guests.filter((guest) => id !== guest.id),
     });
   };
 
-  toggleEditingAt = id => this.toggleGuestPropertyAt("isEditing", id);
+  toggleEditingAt = (id) => this.toggleGuestPropertyAt("isEditing", id);
 
   toggleFilter = () => this.setState({ isFiltered: !this.state.isFiltered });
 
-  handelNameInput = e => this.setState({ pendingGuest: e.target.value });
+  handelNameInput = (e) => this.setState({ pendingGuest: e.target.value });
 
-  newGuestSubmitHandler = e => {
+  newGuestSubmitHandler = (e) => {
     e.preventDefault();
     const id = this.newGuestId();
     this.setState({
       guests: [
-        
         {
           name: this.state.pendingGuest,
           isConfirmed: false,
           isEditing: false,
-          id
+          id,
         },
-        ...this.state.guests
-        
+        ...this.state.guests,
       ],
-      pendingGuest: ""
+      pendingGuest: "",
     });
   };
 
@@ -112,7 +106,7 @@ lastGuestId = 3;
     const numberUnconfirmed = totalInvited - numberAttending;
 
     return (
-      <div className="App" > 
+      <div className="App">
         <Header
           newGuestSubmitHandler={this.newGuestSubmitHandler}
           handelNameInput={this.handelNameInput}
