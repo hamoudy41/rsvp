@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token 53872no8czb"
+    "chromatic": "npx chromatic --project-token $STORYBOOK_PROJECT_TOKEN"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@storybook/addon-actions": "^6.0.16",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-docs": "^6.0.16",
     "@storybook/addon-essentials": "^6.0.16",
     "@storybook/addon-links": "^6.0.16",
