@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
+<<<<<<< HEAD
     "@storybook/addon-actions": "^6.0.17",
     "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-docs": "^6.0.16",
@@ -48,6 +49,16 @@
     "@storybook/node-logger": "^6.0.17",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.17",
+=======
+    "@storybook/addon-actions": "^6.0.16",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-docs": "^6.0.16",
+    "@storybook/addon-essentials": "^6.0.16",
+    "@storybook/addon-links": "^6.0.16",
+    "@storybook/node-logger": "^6.0.16",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.16",
+>>>>>>> 1593960a5d81c85f9a8fea73ef5ec5d7f5305a2f
     "babel-loader": "^8.1.0",
     "chromatic": "^5.1.0",
     "react-is": "^16.13.1"
